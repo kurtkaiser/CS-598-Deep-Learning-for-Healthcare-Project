@@ -9,7 +9,6 @@ This repository contains a modified version of the orginal work, done in order t
 To reproduct this experment, it is necessarily to install Python, to meet some of the requirements listed above, it is necessary to utilize version 3.7 or above. Python can be downloaded and installed directly from [here](https://www.python.org/). 
 
 ### Specification of Dependencies
-
 In order to preform our experiements, particular versions of various libraries and tools must be used. The following is the required versions, this information is contained within the file requirements.txt.
 
 ```txt
@@ -36,9 +35,44 @@ pip install captum==0.2.0
 pip install shap==0.35.0
 ```
 
-
 ### Download Data
 In order to reproduce this the experements the eICU data must be downloaded from the MIMIC-IV (Medical Information Mart for Intensive Care) database. The data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
+
+### Local Database Setup eICU Database Locally
+To begin, first download and install [Postgres]( http://www.postgresql.org/download/). After a successful installation generation a local databse and open SQL Shell (psql). Enter the following commands to setup the database.
+- Generate data tables
+```shell
+\i [eicu-code path]/postgres/postgres_create_tables.sql
+```
+- Open data directory
+```shell
+\cd [eicu-database path]
+```
+- Load the data
+```shell
+\i [eicu-project-code path]/postgres/postgres_load_data_gz.sql
+```
+-  Add necessary indexes
+```shell
+\i [eicu-project-code path]/postgres/postgres_add_indexes.sql
+```
+-  Check and Validate
+```shell
+\i [eicu-project-code path]/postgres/postgres_checks.sql
+```
+-  Navigate to project folder
+```shell
+\cd [project path/]
+```
+-  Create all tables
+```shell
+\i eICU_preprocessing/create_all_tables.sql
+```
+
+At this point the data can be pre-process. First modify the directory paths in the path.json file to the correct destination on your local machine.
+```shell
+python -m eICU_preprocessing.run_all_preprocessing
+```
 
 ## Training
 
