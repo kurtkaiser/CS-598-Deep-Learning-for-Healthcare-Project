@@ -95,29 +95,46 @@ You can download pretrained models here:
 Our model achieves the following performance on :
 
 
-| Model name         | Top 1 Accuracy  | Top 5 Accuracy |
-| ------------------ |---------------- | -------------- |
-| My awesome model   |     85%         |      95%       |
+Below is the result comparison for TPC model between the original paper and our replication experiment on eICU test data.
+
+| **TPC Model**           | **MAD**   | **MSE**   | **MAPE** | **MSLE**  | **R<sup>2</sup>**   | **KAPPA** |
+|---------------|-----------|-----------|----------|-----------|-----------|-----------|
+| Original Paper | 1.78±0.02 |  21.7±0.5 | 63.5±4.3 | 0.70±0.03 | 0.27±0.02 | 0.58±0.01 |
+| Our Results    | 2.496   | 24.628    | 197.249   | 0.328     | 0.475     | 0.710     |
+
+Comparing Models
+| **Model**           | **MAD** | **MSE** | **MAPE** | **MSLE** | **R<sup>2</sup>** | **KAPPA** |
+| ------------------- | ------- | ------- | -------- | -------- | ----------------- | --------- |
+| TPC                 | 2.496   | 24.628  | 197.249  | 0.328    | 0.475             | 0.710     |
+| TPC (without mask)         | 0       | 0       | 0        | 0        | 0                 | 0         |
+| Transformer | 0       | 0       | 0        | 0        | 0                 | 0         |
+| LSTM (Channel-wise)  | 0        |  0       | 0         |  0        |  0                 |   0        |
+
 
 >📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
 
 ## Citations
 
+
 ```bibtex
 @inproceedings{rocheteau2021,
-author = {Rocheteau, Emma and Li\`{o}, Pietro and Hyland, Stephanie},
-title = {Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit},
-year = {2021},
-isbn = {9781450383592},
-publisher = {Association for Computing Machinery},
-address = {New York, NY, USA},
-url = {https://doi.org/10.1145/3450439.3451860},
-doi = {10.1145/3450439.3451860},
-booktitle = {Proceedings of the Conference on Health, Inference, and Learning},
-pages = {58–68},
-numpages = {11},
-keywords = {intensive care unit, length of stay, temporal convolution, mortality, patient outcome prediction},
-location = {USA},
-series = {CHIL '21}
+	author = {Rocheteau, Emma; Li, Pietro; Hyland, Stephanie},
+	title = {Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit},
+	year = {2021},
+	isbn = {9781450383592},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	url = {https://doi.org/10.1145/3450439.3451860},
+	doi = {10.1145/3450439.3451860},
+	booktitle = {Proceedings of the Conference on Health, Inference, and Learning},
+	pages = {58–68},
+	numpages = {11},
+	keywords = {intensive care unit, length of stay, temporal convolution, mortality, patient outcome prediction},
+	location = {USA},
+	series = {CHIL '21}
 }
 ```
+
+## References
+
+Hrayr Harutyunyan, Hrant Khachatrian, David C. Kale, Greg Ver Steeg, and Aram Galstyan. Multitask Learning and Benchmarking with Clinical Time Series Data. Scientific Data, 6(96), 2019.
