@@ -1,4 +1,4 @@
-# Paper Reproduction Study - TPC Networks for LoS
+# Project Information
 Format reference: https://github.com/paperswithcode/releasing-research-code
 
 The aim of this project is to understand, replicate and extend the paper the paper ['Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit'](https://arxiv.org/pdf/2007.09483v4.pdf) by Emma Rocheteau, Pietro Li, and
