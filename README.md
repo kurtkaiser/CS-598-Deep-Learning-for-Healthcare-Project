@@ -44,32 +44,19 @@ To begin, first download and install [Postgres]( http://www.postgresql.org/downl
 ```shell
 \i [eicu-code path]/postgres/postgres_create_tables.sql
 ```
-- Open data directory
+- Open data directory and load the data
 ```shell
 \cd [eicu-database path]
-```
-- Load the data
-```shell
 \i [eicu-project-code path]/postgres/postgres_load_data_gz.sql
 ```
--  Add necessary indexes
+-  Navigate to project folder and create the tables
 ```shell
-\i [eicu-project-code path]/postgres/postgres_add_indexes.sql
-```
--  Check and Validate
-```shell
-\i [eicu-project-code path]/postgres/postgres_checks.sql
-```
--  Navigate to project folder
-```shell
-\cd [project path/]
-```
--  Create all tables
-```shell
+\cd [project path]/
 \i eICU_preprocessing/create_all_tables.sql
 ```
 
-At this point the data can be pre-process. First modify the directory paths in the path.json file to the correct destination on your local machine.
+- Preprocess the data
+	- Modify the directory paths in path.json to point to destinations on your machine. At this point the data can be pre-process. 
 ```shell
 python -m eICU_preprocessing.run_all_preprocessing
 ```
