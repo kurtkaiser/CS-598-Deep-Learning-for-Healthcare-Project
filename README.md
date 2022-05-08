@@ -5,10 +5,13 @@ The aim of this project is to understand, replicate and extend the paper the pap
 Stephanie Hyland ( [repository](https://github.com/EmmaRocheteau/TPC-LoS-prediction)). The paper focuses on creating a deep learning model that will aid in hospital bed management, a daily challenge for the healtcare industry. 
 
 This repository contains a modified version of the orginal work, done in order to carry out and extend the experiments.
+## Requirements
+To reproduct this experment, it is necessarily to install Python, to meet some of the requirements listed above, it is necessary to utilize version 3.7 or above. Python can be downloaded and installed directly from [here](https://www.python.org/). 
 
 ### Specification of Dependencies
 
 In order to preform our experiements, particular versions of various libraries and tools must be used. The following is the required versions, this information is contained within the file requirements.txt.
+
 ```txt
 numpy==1.18.1  
 pandas==0.24.2  
@@ -19,8 +22,6 @@ scikit-learn==0.20.2
 captum==0.2.0  
 shap==0.35.0
 ```
-
-To reproduct this experment, it is necessarily to install Python, to meet some of the requirements listed above, it is necessary to utilize version 3.7 or above. Python can be downloaded and installed directly from  [here](https://www.python.org/). 
 
 After successful installation of Python, several libraries must be installed. We conducted our experments on a Windows based machine. The following commands can be used to install the necessary libraries on computers utilizing Windows. 
 
@@ -36,10 +37,16 @@ pip install shap==0.35.0
 ```
 
 
-#### Download Data
+### Download Data
+In order to reproduce this the experements the eICU data must be downloaded from the MIMIC-IV (Medical Information Mart for Intensive Care) database. The data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
 
-Download eICU Data from Physionet.org: https://physionet.org/content/eicu-crd/2.0/. 
+## Training
 
+To train the model(s) in the paper, run this command:
+
+```train
+python train.py --input-data <path_to_data> --alpha 10 --beta 20
+```
 
 ### Citations
 
