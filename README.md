@@ -21,10 +21,10 @@ captum==0.2.0
 shap==0.35.0
 ```
 
-### Download Data
+### Data Download
 In order to reproduce this the experements the eICU data must be downloaded from the eICU Collaborative Reserach Database (version 2.0). Credentials, earned through completing an online course, are required to access. When credentialized, the data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
 
-### Local Database Setup eICU Database Locally
+### Setup eICU Database Locally
 After a successful installation generation a local databse and open SQL Shell (psql). Enter the following commands to setup the database.
 - Generate data tables https://eicu-crd.mit.edu/tutorials/install_eicu_locally/ 
 ```shell
@@ -98,10 +98,10 @@ eICU_data
 
 ## Training
 
-1. Preprocessing is complete, all the models can be run in the terminal. Navigate to the directory, TPC-LoS-prediction in the terminal and begin with the following command
+1. Preprocessing is complete, all the models can be run in the terminal. Navigate to the directory, TPC-LoS-prediction in the terminal and begin with the following command. The models other than tpc that can be run are listed in the models directory.
 
 ```shell
- # This command can be customized using command line arguments
+ # This command can be customized using command line arguments. See initisalise_arguments.py for all parsable arguments.
  python3 -m models.run_tpc
 ```
 
@@ -117,10 +117,10 @@ Final experiments are located in the directory models/final_experiment_scripts
 
 ## Evaluation
 
-To evaluate my model on ImageNet, run:
+To evaluate the trained [tpc] model, run:
 
 ```eval
-python eval.py # utilizing the correct inline arguments
+python3 -m models.run_tpc --mode test
 ```
 CLAIM 1
 The results of the paper and ours were in congruence. For the main temporal pointwise convolution (TPC) model, the author’s mean average deviation (MAD) in days of stay were 1.78, while ours was 1.71, Although 1.71 is outside their margin of error of 0.02, it’s congruent with their claim that TPC is performing better than the MAD of best-performing baseline models listed (Transformer) by 18 - 68%. As seen in below tables, the other metrics studied, MSE, MAPE, MSLE, R^2, and KAPPA also reproduced similar results in relative performance.
