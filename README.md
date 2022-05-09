@@ -108,7 +108,7 @@ Below is the result comparison for TPC model between the original paper and our 
 | **TPC Model**           | **MAD**   | **MSE**   | **MAPE** | **MSLE**  | **R<sup>2</sup>**   | **KAPPA** |
 |---------------|-----------|-----------|----------|-----------|-----------|-----------|
 | Original Paper | 1.78±0.02 |  21.7±0.5 | 63.5±4.3 | 0.70±0.03 | 0.27±0.02 | 0.58±0.01 |
-| Our Results    | 2.496   | 24.628    | 197.249   | 0.328     | 0.475     | 0.710     |
+| Our Results    | 1.71   | 27.76    | 71.63   | 0.74     | 0.24     | 0.62     |
 
 Comparing models to baseline
 | **Model**           | **MAD** | **MSE** | **MAPE** | **MSLE** | **R<sup>2</sup>** | **KAPPA** |
