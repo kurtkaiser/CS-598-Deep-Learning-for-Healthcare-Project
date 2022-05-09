@@ -36,7 +36,7 @@ pip install shap==0.35.0
 ```
 
 ### Download Data
-In order to reproduce this the experements the eICU data must be downloaded from the eICU Collaborative Reserach Database (version 2.0). Credentials, earned through completing an online course, are required to access. When credentialized, the data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
+In order to reproduce this the experements the eICU data must be downloaded from the MIMIC-IV (Medical Information Mart for Intensive Care) database. The data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
 
 ### Local Database Setup eICU Database Locally
 To begin, first download and install [Postgres]( http://www.postgresql.org/download/). After a successful installation generation a local databse and open SQL Shell (psql). Enter the following commands to setup the database.
@@ -92,9 +92,17 @@ You can download pretrained models here:
 
 ## Results
 
+#### Length of Stay Prediction 
+- Mean absolute deviation (MAD)
+- Mean absolute percentage error (MAPE)
+- Mean squared error (MSE)
+- Mean squared log error (MSLE)
+- Coefficient of determination (R<sup>2</sup>)
+- Cohen Kappa Score (Harutyunyan et al. 2019)
+
+For the first four metrics, lower is better. For the last two, higher is better (Rocheteau et al. 2022).
+
 Our model achieves the following performance on :
-
-
 Below is the result comparison for TPC model between the original paper and our replication experiment on eICU test data.
 
 | **TPC Model**           | **MAD**   | **MSE**   | **MAPE** | **MSLE**  | **R<sup>2</sup>**   | **KAPPA** |
@@ -102,18 +110,32 @@ Below is the result comparison for TPC model between the original paper and our 
 | Original Paper | 1.78±0.02 |  21.7±0.5 | 63.5±4.3 | 0.70±0.03 | 0.27±0.02 | 0.58±0.01 |
 | Our Results    | 2.496   | 24.628    | 197.249   | 0.328     | 0.475     | 0.710     |
 
-Comparing Models
+Comparing models to baseline
 | **Model**           | **MAD** | **MSE** | **MAPE** | **MSLE** | **R<sup>2</sup>** | **KAPPA** |
 | ------------------- | ------- | ------- | -------- | -------- | ----------------- | --------- |
 | TPC                 | 2.496   | 24.628  | 197.249  | 0.328    | 0.475             | 0.710     |
 | Transformer | 0       | 0       | 0        | 0        | 0                 | 0         |
-| LSTM (Channel-wise)  | 0        |  0       | 0         |  0        |  0                 |   0        |
+| LSTM  | 0        |  0       | 0         |  0        |  0                 |   0        |
 
+Ablations
+| **Model**           | **MAD** | **MSE** | **MAPE** | **MSLE** | **R<sup>2</sup>** | **KAPPA** |
+| ------------------- | ------- | ------- | -------- | -------- | ----------------- | --------- |
+| TPC                 | 2.496   | 24.628  | 197.249  | 0.328    | 0.475             | 0.710     |
+| TPC (MSE)         | 0       | 0       | 0        | 0        | 0                 | 0         |
+| Pointwise | 0       | 0       | 0        | 0        | 0                 | 0         |
+| LSTM  | 0        |  0       | 0         |  0        |  0                 |   0        |
+
+Original Results
+Model | MAD | MAPE | MSE | MSLE | R<sup>2</sup> | Kappa
+--- | --- | --- | --- | --- | --- | ---
+LSTM | 2.39±0.00 | 118.2±1.1 | 26.9±0.1 | 1.47±0.01 | 0.09±0.00 | 0.28±0.00
+CW LSTM | 2.37±0.00 | 114.5±0.4 | 26.6±0.1 | 1.43±0.00 | 0.10±0.00 | 0.30±0.00
+Transformer | 2.36±0.00 | 114.1±0.6 | 26.7±0.1 | 1.43±0.00 | 0.09±0.00 | 0.30±0.00
+TPC | 1.78±0.02 | 63.5±4.3 | 21.7±0.5 | 0.70±0.03 | 0.27±0.02 | 0.58±0.01
 
 >📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
 
 ## Citations
-
 
 ```bibtex
 @inproceedings{rocheteau2021,
