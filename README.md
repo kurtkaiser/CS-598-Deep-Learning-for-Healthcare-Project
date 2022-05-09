@@ -8,7 +8,8 @@ This repository contains a modified version of the orginal work, done in order t
 To reproduct this experment, it is necessarily to install Python, to meet some of the requirements listed above, it is necessary to utilize version 3.7 or above. Python can be downloaded and installed directly from [here](https://www.python.org/). 
 
 ### Specification of Dependencies
-In order to preform our experiements, particular versions of various libraries and tools must be used. The following is the required versions, this information is contained within the file requirements.txt.
+### Specification of Dependencies
+In order to preform our experiements, particular versions of various libraries and tools must be used. The following is the required versions, this information is contained within the file requirements.txt. We conducted our experments on a Windows based and a Linux based machine.
 
 ```txt
 numpy==1.18.1  
@@ -21,21 +22,8 @@ captum==0.2.0
 shap==0.35.0
 ```
 
-After successful installation of Python, several libraries must be installed. We conducted our experments on a Windows based machine. The following commands can be used to install the necessary libraries on computers utilizing Windows. 
-
-```shell
-pip install numpy==1.18.1  
-pip install pandas==0.24.2  
-pip install scipy==1.4.1  
-pip install torch==1.5.0  
-pip install trixi==0.1.2.2  
-pip install scikit-learn==0.20.2  
-pip install captum==0.2.0  
-pip install shap==0.35.0
-```
-
 ### Download Data
-In order to reproduce this the experements the eICU data must be downloaded from the MIMIC-IV (Medical Information Mart for Intensive Care) database. The data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
+In order to reproduce this the experements the eICU data must be downloaded from the eICU Collaborative Reserach Database (version 2.0). Credentials, earned through completing an online course, are required to access. When credentialized, the data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
 
 ### Local Database Setup eICU Database Locally
 After a successful installation generation a local databse and open SQL Shell (psql). Enter the following commands to setup the database.
@@ -204,7 +192,3 @@ TPC | 1.78±0.02 | 63.5±4.3 | 21.7±0.5 | 0.70±0.03 | 0.27±0.02 | 0.58±0.01
 	series = {CHIL '21}
 }
 ```
-
-## References
-
-Hrayr Harutyunyan, Hrant Khachatrian, David C. Kale, Greg Ver Steeg, and Aram Galstyan. Multitask Learning and Benchmarking with Clinical Time Series Data. Scientific Data, 6(96), 2019.
