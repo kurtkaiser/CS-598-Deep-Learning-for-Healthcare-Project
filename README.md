@@ -134,7 +134,7 @@ Final experiments are located in the directory models/final_experiment_scripts
 To evaluate my model on ImageNet, run:
 
 ```eval
-python eval.py --model-file mymodel.pth --benchmark imagenet
+python eval.py # utilizing the correct inline arguments
 ```
 CLAIM 1
 The results of the paper and ours were in congruence. For the main temporal pointwise convolution (TPC) model, the author’s mean average deviation (MAD) in days of stay were 1.78, while ours was 1.71, Although 1.71 is outside their margin of error of 0.02, it’s congruent with their claim that TPC is performing better than the MAD of best-performing baseline models listed (Transformer) by 18 - 68%. As seen in below tables, the other metrics studied, MSE, MAPE, MSLE, R^2, and KAPPA also reproduced similar results in relative performance.
