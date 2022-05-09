@@ -36,7 +36,7 @@ pip install shap==0.35.0
 ```
 
 ### Download Data
-In order to reproduce this the experements the eICU data must be downloaded from the MIMIC-IV (Medical Information Mart for Intensive Care) database. The data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
+In order to reproduce this the experements the eICU data must be downloaded from the eICU Collaborative Reserach Database (version 2.0). Credentials, earned through completing an online course, are required to access. When credentialized, the data can be access through [Physionet.org]( https://physionet.org/content/eicu-crd/2.0/).
 
 ### Local Database Setup eICU Database Locally
 To begin, first download and install [Postgres]( http://www.postgresql.org/download/). After a successful installation generation a local databse and open SQL Shell (psql). Enter the following commands to setup the database.
