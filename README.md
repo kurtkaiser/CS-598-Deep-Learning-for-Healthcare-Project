@@ -136,12 +136,11 @@ To evaluate my model on ImageNet, run:
 ```eval
 python eval.py --model-file mymodel.pth --benchmark imagenet
 ```
+CLAIM 1
+The results of the paper and ours were in congruence. For the main temporal pointwise convolution (TPC) model, the author’s mean average deviation (MAD) in days of stay were 1.78, while ours was 1.71, Although 1.71 is outside their margin of error of 0.02, it’s congruent with their claim that TPC is performing better than the MAD of best-performing baseline models listed (Transformer) by 18 - 68%. As seen in below tables, the other metrics studied, MSE, MAPE, MSLE, R^2, and KAPPA also reproduced similar results in relative performance.
 
-## Pre-trained Models
-
-You can download pretrained models here:
-
-
+Claim 2
+Using MSLE instead of MSE as the loss function did deliver better performance, with a MAD of 2.42 (2.21 in authors’ results) using MSE vs. the 1.71 (1.78) listed above. Other than MSE (as expected), the performance was also similar or superior with MSLE as the loss function.
 
 ## Results
 
