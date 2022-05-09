@@ -155,7 +155,6 @@ You can download pretrained models here:
 
 For the first four metrics, lower is better. For the last two, higher is better (Rocheteau et al. 2022).
 
-Our model achieves the following performance on :
 Below is the result comparison for TPC model between the original paper and our replication experiment on eICU test data.
 
 | **TPC Model**           | **MAD**   | **MSE**   | **MAPE** | **MSLE**  | **R<sup>2</sup>**   | **KAPPA** |
