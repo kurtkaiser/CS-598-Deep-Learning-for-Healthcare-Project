@@ -8,7 +8,6 @@ This repository contains a modified version of the orginal work, done in order t
 To reproduct this experment, it is necessarily to install Python, to meet some of the requirements listed above, it is necessary to utilize version 3.7 or above. Python can be downloaded and installed directly from [here](https://www.python.org/). 
 
 ### Specification of Dependencies
-### Specification of Dependencies
 In order to preform our experiements, particular versions of various libraries and tools must be used. The following is the required versions, this information is contained within the file requirements.txt. We conducted our experments on a Windows based and a Linux based machine.
 
 ```txt
